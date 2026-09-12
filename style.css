@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Общие стили сайта. Один файл на все страницы.
+   Читать сверху вниз: сначала переменные, потом каркас, потом блоки.
+   ========================================================================== */
+
+/* --- 1. Переменные цвета -------------------------------------------------
+   Всё, что связано с цветом, задано здесь один раз и переиспользуется ниже.
+   Меняешь значение тут — меняется на всём сайте.                          */
+
+:root {
+  --bg:        #fbfaf8;  /* фон страницы */
+  --surface:   #ffffff;  /* фон карточек */
+  --text:      #1c1c1a;  /* основной текст */
+  --muted:     #6b6a66;  /* второстепенный текст */
+  --accent:    #0a6c74;  /* акцент: ссылки, подчёркивания */
+  --border:    #e6e3dd;  /* линии и рамки */
+}
+
+/* Тёмная тема. Браузер сам сообщает, какая тема стоит в системе,
+   а мы просто переопределяем те же самые переменные.                      */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #14161a;
+    --surface: #1b1e23;
+    --text:    #e8e6e1;
+    --muted:   #9b9a95;
+    --accent:  #5ec6cf;
+    --border:  #2a2e35;
+  }
+}
+
+/* --- 2. Базовый каркас --------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  /* Системный шрифт: тот, что уже стоит у пользователя. Ничего не грузим,
+     страница открывается мгновенно и выглядит «родной» для его ОС.        */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ограничитель ширины. Длинную строку тяжело читать — глаз теряет начало
+   следующей. ~680px это примерно 70–80 символов, оптимум для чтения.      */
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+h1, h2, h3 { line-height: 1.25; font-weight: 650; }
+
+h1 { font-size: 2rem;    margin: 0 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 1.25rem; margin: 44px 0 14px; }
+h3 { font-size: 1rem;    margin: 24px 0 6px; }
+
+p { margin: 0 0 18px; }
+
+/* --- 3. Шапка и навигация ------------------------------------------------ */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  margin-bottom: 48px;
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  font-size: 0.95rem;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav a:hover { color: var(--accent); }
+
+/* Текущая страница подсвечена — посетитель всегда понимает, где он.        */
+.nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* --- 4. Содержимое страницы ---------------------------------------------- */
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+/* Карточка — контейнер для смыслового блока: группы навыков, пункта плана. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.card h3 { margin-top: 0; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+ul { padding-left: 22px; margin: 0 0 18px; }
+li { margin-bottom: 6px; }
+
+/* Ряд «тегов» — компактный способ показать стек, не превращая его в
+   простыню из иконок.                                                     */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 18px;
+  list-style: none;
+}
+
+.tags li {
+  margin: 0;
+  font-size: 0.87rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+
+/* Заметка на полях: дата обновления, короткий комментарий.                 */
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* --- 5. Подвал ----------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+  padding: 24px 0 48px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+/* --- 6. Узкие экраны ------------------------------------------------------
+   Всё выше уже тянется по ширине, поэтому правок нужно немного: чуть
+   уменьшить заголовок, чтобы он не разъезжался на телефоне.               */
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+  .wrap { padding: 0 18px; }
+}
