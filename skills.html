@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Политика безопасности: перечисляет, откуда странице разрешено что-либо
+       грузить. Всё, что не названо явно, браузер заблокирует. Для статичного
+       сайта это дёшево и закрывает целый класс атак с подменой содержимого. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <!-- Не отдавать адрес нашей страницы посторонним сайтам при переходе. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Мои навыки — Сергей Меркулов</title>
+  <meta name="description" content="Навыки SRE-инженера по уровню владения: чем владею уверенно, чем пользуюсь по задаче, что изучаю сейчас.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap&subset=cyrillic,latin" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Сергей Меркулов</a>
+    <nav class="nav">
+      <a href="index.html">Обо мне</a>
+      <a href="skills.html" aria-current="page">Мои навыки</a>
+      <a href="now.html">Сейчас</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Все секции ниже лежат в одном контейнере .wrap — поэтому левый край
+       текста, заголовков и карточек совпадает на всей странице. -->
+
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Навыки</p>
+      <h1 class="page-title">Мои навыки</h1>
+      <p class="lead">
+        Не список иконок, а разметка по уровню владения: где я уверен,
+        где это просто рабочий инструмент, а где пока учусь. Разница между
+        этими тремя состояниями — самое полезное, что можно рассказать
+        о своих навыках.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Уверенно ===== -->
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow">Уверенно</p>
+      <h2>Работал в проде: ломал, чинил и объяснял другим</h2>
+      <div class="grid mt-32">
+
+        <div class="card card-accent reveal">
+          <h3>Надёжность и эксплуатация</h3>
+          <p>
+            Разбор инцидентов и поиск корневых причин, постмортемы,
+            Incident и Problem Management, error budget. Практики SRE —
+            USE, RED — не как теория из книги, а как способ быстро сузить
+            область поиска, когда всё горит.
+          </p>
+        </div>
+
+        <div class="card card-accent reveal">
+          <h3>Observability</h3>
+          <p>
+            Метрики, логи, трейсы и — главное — алерты, которые
+            действительно о чём-то говорят. Grafana, VictoriaMetrics,
+            vmalert, Alertmanager, Prometheus, Loki, ELK, KeepHQ
+            для маршрутизации алертов в нужные команды.
+          </p>
+        </div>
+
+        <div class="card card-accent reveal">
+          <h3>Kubernetes и инфраструктура</h3>
+          <p>
+            Управление ресурсами и настройка проб, диагностика узлов
+            и workload'ов, миграции приложений в кластер. Вокруг — Helm,
+            ArgoCD, GitLab CI/CD, Harbor, Ansible, Terraform, Linux,
+            Nginx, PostgreSQL, Kafka, S3.
+          </p>
+        </div>
+
+        <div class="card card-accent reveal">
+          <h3>Железо и хранение</h3>
+          <p>
+            Редкий сегодня слой знаний, который выручает, когда проблема
+            оказывается ниже уровня контейнера. СХД Hitachi и Huawei,
+            объектное хранение HCP, SAN на Brocade, сети на уровне CCNA.
+            Пусконаладка на площадке, а не только по документации.
+          </p>
+        </div>
+
+        <div class="card card-accent reveal">
+          <h3>Передача знаний</h3>
+          <p>
+            Разработка технических курсов с нуля, проектирование
+            лабораторных сценариев, эксплуатационная документация,
+            наставничество младших инженеров. Умение объяснить сложное —
+            тоже инженерный навык, и он тренируется.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== По задаче ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">По задаче</p>
+      <h2>Беру, когда нужно решить конкретную проблему</h2>
+      <p class="lead mb-28">
+        Пользуюсь регулярно, но экспертом себя не назову.
+      </p>
+      <ul class="tags">
+        <li>Python</li>
+        <li>Bash</li>
+        <li>Git</li>
+        <li>VMware vCenter</li>
+        <li>Proxmox</li>
+        <li>AWS</li>
+        <li>Zabbix</li>
+        <li>Patroni</li>
+        <li>Docker Compose</li>
+        <li>HAProxy</li>
+        <li>Jira · Confluence</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Изучаю ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Изучаю сейчас</p>
+      <h2>Зона роста</h2>
+      <div class="grid mt-32">
+
+        <div class="card reveal">
+          <h3>Безопасность контейнеров и DevSecOps</h3>
+          <p>
+            Логичное продолжение работы над курсом: анализ угроз, проверка
+            образов, политики безопасности и расследование инцидентов
+            в контейнерной среде. Область, где ИБ и эксплуатация наконец
+            перестают быть двумя разными мирами.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Платформенный подход и IaC</h3>
+          <p>
+            GitOps, инфраструктура как код, воспроизводимые окружения.
+            Интересует не сам инструмент, а вопрос: как сделать так, чтобы
+            команда могла разворачивать нужное сама, не приходя ко мне.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Веб и этот самый сайт</h3>
+          <p>
+            HTML, CSS, Git-процессы вокруг публикации. Начал с нуля —
+            страница, которую вы читаете, написана руками и стала первым
+            практическим результатом.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Направление ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Направление</p>
+      <blockquote class="quote reveal">
+        Сильный SRE, который умеет писать и объяснять, полезнее
+        двух молчаливых.
+      </blockquote>
+      <p class="lead mt-32">
+        Хочу оставаться на стыке двух ролей: инженера, который сам держит
+        руки в проде, и человека, который умеет передать это дальше.
+        В эту сторону и расту.
+      </p>
+      <p class="note">Английский — B2. Читаю документацию и вендорские курсы в оригинале.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Сергей Меркулов</span>
+    <span><a href="index.html">На главную</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>
