@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Политика безопасности: перечисляет, откуда странице разрешено что-либо
+       грузить. Всё, что не названо явно, браузер заблокирует. Для статичного
+       сайта это дёшево и закрывает целый класс атак с подменой содержимого. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <!-- Не отдавать адрес нашей страницы посторонним сайтам при переходе. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Сейчас — Сергей Меркулов</title>
   <meta name="description" content="Чем я занят прямо сейчас: работа, учёба, планы. Страница обновляется примерно раз в месяц.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap&subset=cyrillic,latin" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,61 +25,100 @@
     <a class="brand" href="index.html">Сергей Меркулов</a>
     <nav class="nav">
       <a href="index.html">Обо мне</a>
-      <a href="skills.html">Технологии</a>
+      <a href="skills.html">Мои навыки</a>
       <a href="now.html" aria-current="page">Сейчас</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <h1>Чем занят сейчас</h1>
+  <!-- Структура повторяет страницу «Мои навыки»: тот же вводный блок,
+       тот же контейнер, те же карточки — страницы читаются как одна серия. -->
 
-  <p class="lead">
-    Эта страница — снимок текущего момента, а не архив достижений.
-    Обновляю примерно раз в месяц.
-  </p>
+  <section class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Сентябрь 2026</p>
+      <h1 class="page-title">Чем занят сейчас</h1>
+      <p class="lead">
+        Снимок текущего момента, а не архив достижений.
+        Обновляю примерно раз в месяц.
+      </p>
+    </div>
+  </section>
 
-  <h2>Работа</h2>
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow">Прямо сейчас</p>
+      <h2>Четыре занятия этого месяца</h2>
+      <div class="stack mt-32">
 
-  <p>
-    Лаборатория Касперского, разработка технических тренингов.
-    Продолжаю развивать курс по Kaspersky Container Security и курс
-    по диагностике OSMP. Разворачиваю учебные среды через Terraform
-    для заказчиков и партнёров в разных регионах.
-  </p>
+        <div class="card card-accent reveal">
+          <h3>Работа</h3>
+          <p>
+            Лаборатория Касперского, разработка технических тренингов.
+            Продолжаю развивать курс по Kaspersky Container Security
+            и курс по диагностике OSMP. Разворачиваю учебные среды
+            через Terraform для заказчиков и партнёров в разных регионах.
+          </p>
+        </div>
 
-  <h2>Учусь</h2>
+        <div class="card card-accent reveal">
+          <h3>Учусь</h3>
+          <p>
+            Углубляюсь в безопасность контейнеров и DevSecOps-практики.
+            Параллельно — HTML, CSS и Git: разбираюсь, как устроен веб,
+            и собираю вот этот сайт руками, чтобы понимать каждую строчку.
+          </p>
+        </div>
 
-  <p>
-    Углубляюсь в безопасность контейнеров и DevSecOps-практики.
-    Параллельно — HTML, CSS и Git: разбираюсь, как устроен веб,
-    и собираю вот этот сайт руками, чтобы понимать каждую строчку.
-  </p>
+        <div class="card card-accent reveal">
+          <h3>Думаю над</h3>
+          <p>
+            Запустить здесь блог. Материала хватает: каждый разбор
+            инцидента и каждая собранная лаборатория — готовая тема.
+            Осталось начать писать, а не собираться писать.
+          </p>
+        </div>
 
-  <h2>Думаю над</h2>
+        <div class="card card-accent reveal">
+          <h3>Вне работы</h3>
+          <p>
+            Футбол и мастерская: делаю изделия из натуральной кожи.
+          </p>
+        </div>
 
-  <p>
-    Запустить здесь блог. Материала хватает: каждый разбор инцидента
-    и каждая собранная лаборатория — готовая тема. Осталось начать
-    писать, а не собираться писать.
-  </p>
+      </div>
+    </div>
+  </section>
 
-  <h2>Вне работы</h2>
-
-  <p>
-    Футбол и мастерская: делаю изделия из натуральной кожи.
-  </p>
-
-  <p class="note">Обновлено: сентябрь 2026.</p>
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Связаться</p>
+      <h2>Если хочется обсудить что-то из этого</h2>
+      <ul class="contact-list mt-32">
+        <li>
+          <span class="contact-kind">Почта</span>
+          <a href="mailto:amandin68@gmail.com">amandin68@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact-kind">Telegram</span>
+          <a href="https://t.me/Amandin68" rel="noopener noreferrer">@Amandin68</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <a href="index.html">На главную</a>
+    <span>© 2026 Сергей Меркулов</span>
+    <span><a href="index.html">На главную</a></span>
   </div>
 </footer>
+
+<script src="main.js"></script>
 
 </body>
 </html>

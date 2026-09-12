@@ -2,11 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <!-- viewport обязателен: без него телефон покажет уменьшенную копию
-       десктопной версии вместо нормальной мобильной вёрстки. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Политика безопасности: перечисляет, откуда странице разрешено что-либо
+       грузить. Всё, что не названо явно, браузер заблокирует. Для статичного
+       сайта это дёшево и закрывает целый класс атак с подменой содержимого. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <!-- Не отдавать адрес нашей страницы посторонним сайтам при переходе. -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Сергей Меркулов — SRE-инженер</title>
-  <meta name="description" content="SRE и DevOps инженер из Москвы. 13 лет пути от техподдержки до Kubernetes. Сейчас разрабатываю технические тренинги в Лаборатории Касперского.">
+  <meta name="description" content="SRE и DevOps инженер из Москвы. 14 лет пути от техподдержки до Kubernetes. Разрабатываю технические тренинги в Лаборатории Касперского.">
+
+  <!-- Шрифты подгружаются со стороннего сервера. preconnect говорит браузеру
+       открыть соединение заранее, не дожидаясь, пока дело дойдёт до CSS. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap&subset=cyrillic,latin" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,84 +27,208 @@
     <a class="brand" href="index.html">Сергей Меркулов</a>
     <nav class="nav">
       <a href="index.html" aria-current="page">Обо мне</a>
-      <a href="skills.html">Технологии</a>
+      <a href="skills.html">Мои навыки</a>
       <a href="now.html">Сейчас</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <h1>Инженер, который объясняет</h1>
+  <!-- ===== Первый экран ===== -->
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">SRE · DevOps </p>
+        <h1>Инженер,<br>который объясняет</h1>
+        <p class="hero-role">Сергей Меркулов — Москва</p>
+        <p class="hero-lead">
+          Четырнадцать лет прошёл снизу вверх: от кабелей и стоек
+          до Kubernetes и постмортемов. Сейчас превращаю этот опыт
+          в курсы, по которым учатся инженеры.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:amandin68@gmail.com">Написать на почту</a>
+          <a class="btn btn-ghost" href="https://t.me/Amandin68" rel="noopener noreferrer">Написать в телеграм</a>
+        </div>
+      </div>
 
-  <p class="lead">
-    SRE и DevOps. Тринадцать лет прошёл снизу вверх — от кабелей и стоек
-    до Kubernetes и постмортемов. Сейчас превращаю этот опыт в курсы,
-    по которым учатся инженеры.
-  </p>
+      <figure class="portrait">
+        <img src="img/photo.jpeg" alt="Сергей Меркулов" width="500" height="500">
+      </figure>
+    </div>
+  </div>
 
-  <p>
-    Я начинал с техподдержки: сборка машин, локальные сети, сотня
-    пользователей, которым нужно, чтобы всё просто работало. Потом были
-    системы хранения — Hitachi, Huawei, SAN-фабрики Brocade. Пусконаладка
-    на площадке заказчика, где ошибка стоит дорого, а гуглить некогда.
-    Это дало то, чего не даёт ни один курс: понимание, что под всеми
-    абстракциями лежит физическое железо, и оно ломается.
-  </p>
+  <!-- ===== Цифры ===== -->
+  <div class="wrap">
+    <div class="stats reveal">
+      <div>
+        <div class="stat-num">14</div>
+        <div class="stat-label">лет в инфраструктуре<br>и эксплуатации</div>
+      </div>
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">инженеров обучил<br>работе с продуктом</div>
+      </div>
+      <div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">технических курса<br>собрал с нуля</div>
+      </div>
+      <div>
+        <div class="stat-num">800</div>
+        <div class="stat-label">простаивающих CPU<br>нашёл в кластерах</div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Дальше был production. В Ecom.tech я отвечал за надёжность: разбирал
-    инциденты и искал корневые причины, выстраивал процессы Incident
-    и Problem Management, вводил error budget. Переписал алертинг для
-    Postgres, Kubernetes, Linux и HAProxy так, что нагрузка на поддержку
-    упала вдвое. Сформировал требования к ресурсам в Kubernetes — и нашёл
-    более восьмисот простаивающих CPU. Спланировал и провёл миграцию
-    основного API-gateway с Docker Compose на Kubernetes.
-  </p>
+  <!-- ===== Путь ===== -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Путь</p>
+      <h2>Снизу вверх, без пропущенных ступеней</h2>
+      <p class="lead mb-48">
+        Каждый следующий слой я осваивал, уже понимая предыдущий.
+        Это даёт редкую вещь: когда что-то ломается, я знаю, на какую
+        глубину нужно нырять.
+      </p>
 
-  <p>
-    Сейчас в Лаборатории Касперского я делаю то, к чему всё это вело.
-    Разрабатываю практические технические курсы: с нуля собрал курс по
-    Kaspersky Container Security о встраивании безопасности в DevOps-процессы —
-    по нему преподают в большинстве регионов мира. И курс по диагностике
-    OSMP, микросервисной платформы на Kubernetes, с лабораториями на
-    Grafana, VictoriaMetrics и Loki. Разворачиваю учебные среды в AWS
-    и VMware через Terraform. Больше пятидесяти обученных инженеров.
-  </p>
+      <div class="timeline">
 
-  <h2>Во что я верю</h2>
+        <div class="tl-item is-now reveal">
+          <div class="tl-date">2025 — сейчас</div>
+          <h3>Лаборатория Касперского · Разработка технических тренингов</h3>
+          <p>
+            Собрал с нуля курс по Kaspersky Container Security — о том, как
+            встроить проверки безопасности в реальный процесс поставки ПО.
+            По нему преподают в большинстве регионов мира. Второй курс —
+            диагностика OSMP, микросервисной платформы на Kubernetes,
+            с лабораториями на Grafana, VictoriaMetrics и Loki. Учебные
+            среды разворачиваю через Terraform в AWS и VMware.
+          </p>
+        </div>
 
-  <p>
-    Хорошее объяснение начинается с честности: сначала показать, как
-    ломается, потом — почему чинится именно так. Я не умею рассказывать
-    про технологию, которую сам не трогал руками в бою. Поэтому каждый мой
-    курс вырос из реального инцидента, а каждая лаборатория — из ситуации,
-    в которой я когда-то сидел ночью и не понимал, что происходит.
-  </p>
+        <div class="tl-item reveal">
+          <div class="tl-date">2022 — 2025</div>
+          <h3>Ecom.tech · SRE / DevOps</h3>
+          <p>
+            Отвечал за надёжность: разбор инцидентов и поиск корневых причин,
+            постмортемы, Incident и Problem Management, error budget.
+            Переписал алертинг для Postgres, Kubernetes, Linux и HAProxy —
+            нагрузка на поддержку упала вдвое. Спланировал и провёл миграцию
+            основного API-gateway с Docker Compose на Kubernetes.
+          </p>
+        </div>
 
-  <h2>Немного не про работу</h2>
+        <div class="tl-item reveal">
+          <div class="tl-date">2021 — 2022</div>
+          <h3>ВТБ · Эксперт по системам хранения</h3>
+          <p>
+            СХД Hitachi и Huawei, объектное хранение на Hitachi Content
+            Platform, отказоустойчивые репликационные кластеры,
+            SAN-фабрики Brocade. Мониторинг через SNMP и REST API.
+          </p>
+        </div>
 
-  <p>
-    Живу в Москве. Люблю футбол. В свободное время делаю изделия из
-    натуральной кожи — руками, медленно, без единого YAML-файла.
-    Постоянно учусь сам и помогаю учиться другим, оставаясь при этом
-    обычным живым человеком.
-  </p>
+        <div class="tl-item reveal">
+          <div class="tl-date">2018 — 2021</div>
+          <h3>iCore, Техносерв · Инженер</h3>
+          <p>
+            Пусконаладка на площадке заказчика: Hitachi VSP, IBM Power,
+            SAN-директоры Brocade. Там, где ошибка стоит дорого,
+            а гуглить некогда. Тогда же начал проводить внутренние
+            семинары для коллег — первый опыт передачи знаний.
+          </p>
+        </div>
 
-  <h2>Связаться</h2>
+        <div class="tl-item reveal">
+          <div class="tl-date">2011 — 2018</div>
+          <h3>Начало · Техподдержка и системное администрирование</h3>
+          <p>
+            Сборка машин, локальные сети, VPN между филиалами, сотня
+            пользователей, которым нужно, чтобы всё просто работало.
+            Базовое понимание, что под любой абстракцией лежит железо —
+            и оно ломается.
+          </p>
+        </div>
 
-  <p>
-    Почта — <a href="mailto:amandin68@gmail.com">amandin68@gmail.com</a>.<br>
-    Telegram — <a href="https://t.me/Amandin68">@Amandin68</a>.
-  </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Принципы ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Подход</p>
+      <blockquote class="quote reveal">
+        Хорошее объяснение начинается с честности: сначала показать,
+        как ломается, и только потом — почему чинится именно так.
+      </blockquote>
+      <p class="lead mt-32">
+        Я не умею рассказывать про технологию, которую сам не трогал руками
+        в бою. Поэтому каждый мой курс вырос из реального инцидента,
+        а каждая лабораторная — из ситуации, в которой я когда-то сидел
+        ночью и не понимал, что происходит.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Личное ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Не про работу</p>
+      <h2 class="mb-36">Живой человек, а не стек технологий</h2>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Футбол</h3>
+          <p>Лучший способ выгрузить голову после недели разборов инцидентов.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Кожа</h3>
+          <p>Делаю изделия из натуральной кожи. Руками, медленно, без единого YAML-файла.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Учиться и учить</h3>
+          <p>Постоянно учусь сам и помогаю учиться другим — оставаясь при этом обычным живым человеком.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Контакты ===== -->
+  <section class="section-line">
+    <div class="wrap">
+      <p class="eyebrow">Контакты</p>
+      <h2>Давайте поговорим</h2>
+      <p class="lead mb-32">
+        Открыт к предложениям, вопросам по SRE и эксплуатации
+        и к разговорам про обучение инженеров.
+      </p>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-kind">Почта</span>
+          <a href="mailto:amandin68@gmail.com">amandin68@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact-kind">Telegram</span>
+          <!-- rel="noopener" закрывает открытой вкладке доступ к нашей
+               странице через window.opener. noreferrer не передаёт адрес
+               страницы, с которой ушли. -->
+          <a href="https://t.me/Amandin68" rel="noopener noreferrer">@Amandin68</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    Сайт собран вручную и живёт на GitHub Pages.
+    <span>© 2026 Сергей Меркулов</span>
+    <span>Москва</span>
   </div>
 </footer>
+
+<script src="main.js"></script>
 
 </body>
 </html>
