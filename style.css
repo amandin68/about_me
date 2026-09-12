@@ -125,7 +125,50 @@ section { padding: 88px 0; }
   text-decoration: none;
 }
 
+.header-right { display: flex; align-items: center; gap: 24px; }
+
 .nav { display: flex; gap: 28px; font-size: 0.93rem; }
+
+/* --- Переключатель языка -------------------------------------------------
+   Две кнопки в одной рамке. Активный язык залит акцентом.                 */
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-switch button {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.lang-switch button:hover { color: var(--ink); }
+
+/* aria-pressed говорит и программам чтения с экрана, и нам: кнопка нажата.
+   Стиль вешаем на тот же атрибут, чтобы вид и смысл не разъезжались.      */
+.lang-switch button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* --- Две языковые версии в одном файле ------------------------------------
+   Русский виден по умолчанию — даже если скрипт не отработает. Английский
+   показывается, только когда на <html> стоит lang="en".                   */
+
+[data-lang="en"] { display: none; }
+
+html[lang="en"] [data-lang="en"] { display: revert; }
+html[lang="en"] [data-lang="ru"] { display: none; }
 
 .nav a {
   color: var(--muted);

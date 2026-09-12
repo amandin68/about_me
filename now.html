@@ -12,22 +12,45 @@
   <title>Сейчас — Сергей Меркулов</title>
   <meta name="description" content="Чем я занят прямо сейчас: работа, учёба, планы. Страница обновляется примерно раз в месяц.">
 
+  <!-- Выставляет язык до отрисовки, чтобы страница не мигала русским текстом
+       у того, кто выбрал английский. Поэтому без defer. -->
+  <script src="lang-init.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap&subset=cyrillic,latin" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body
+  data-title-ru="Сейчас — Сергей Меркулов"
+  data-title-en="Now — Sergey Merkulov"
+  data-desc-ru="Чем я занят прямо сейчас: работа, учёба, планы. Страница обновляется примерно раз в месяц."
+  data-desc-en="What I am working on right now: job, learning, plans. Updated roughly once a month.">
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">Сергей Меркулов</a>
-    <nav class="nav">
-      <a href="index.html">Обо мне</a>
-      <a href="skills.html">Мои навыки</a>
-      <a href="now.html" aria-current="page">Сейчас</a>
-    </nav>
+    <a class="brand" href="index.html"><span data-lang="ru">Сергей Меркулов</span><span data-lang="en">Sergey Merkulov</span></a>
+
+    <div class="header-right">
+      <nav class="nav">
+        <a href="index.html">
+          <span data-lang="ru">Обо мне</span><span data-lang="en">About</span>
+        </a>
+        <a href="skills.html">
+          <span data-lang="ru">Мои навыки</span><span data-lang="en">Skills</span>
+        </a>
+        <a href="now.html" aria-current="page">
+          <span data-lang="ru">Сейчас</span><span data-lang="en">Now</span>
+        </a>
+      </nav>
+
+      <div class="lang-switch">
+        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -38,53 +61,89 @@
 
   <section class="page-intro">
     <div class="wrap">
-      <p class="eyebrow">Сентябрь 2026</p>
-      <h1 class="page-title">Чем занят сейчас</h1>
-      <p class="lead">
+      <p class="eyebrow" data-lang="ru">Сентябрь 2026</p>
+      <p class="eyebrow" data-lang="en">September 2026</p>
+
+      <h1 class="page-title" data-lang="ru">Чем занят сейчас</h1>
+      <h1 class="page-title" data-lang="en">What I am doing now</h1>
+
+      <p class="lead" data-lang="ru">
         Снимок текущего момента, а не архив достижений.
         Обновляю примерно раз в месяц.
+      </p>
+      <p class="lead" data-lang="en">
+        A snapshot of the present moment, not an archive of achievements.
+        I update it roughly once a month.
       </p>
     </div>
   </section>
 
   <section class="section-tight">
     <div class="wrap">
-      <p class="eyebrow">Прямо сейчас</p>
-      <h2>Четыре занятия этого месяца</h2>
+      <p class="eyebrow" data-lang="ru">Прямо сейчас</p>
+      <p class="eyebrow" data-lang="en">Right now</p>
+
+      <h2 data-lang="ru">Четыре занятия этого месяца</h2>
+      <h2 data-lang="en">Four things filling this month</h2>
+
       <div class="stack mt-32">
 
         <div class="card card-accent reveal">
-          <h3>Работа</h3>
-          <p>
+          <h3 data-lang="ru">Работа</h3>
+          <h3 data-lang="en">Work</h3>
+          <p data-lang="ru">
             Лаборатория Касперского, разработка технических тренингов.
             Продолжаю развивать курс по Kaspersky Container Security
             и курс по диагностике OSMP. Разворачиваю учебные среды
             через Terraform для заказчиков и партнёров в разных регионах.
           </p>
+          <p data-lang="en">
+            Kaspersky, technical training development. I keep evolving the
+            Kaspersky Container Security course and the OSMP troubleshooting
+            course, and provision training environments with Terraform for
+            customers and partners across different regions.
+          </p>
         </div>
 
         <div class="card card-accent reveal">
-          <h3>Учусь</h3>
-          <p>
+          <h3 data-lang="ru">Учусь</h3>
+          <h3 data-lang="en">Learning</h3>
+          <p data-lang="ru">
             Углубляюсь в безопасность контейнеров и DevSecOps-практики.
             Параллельно — HTML, CSS и Git: разбираюсь, как устроен веб,
             и собираю вот этот сайт руками, чтобы понимать каждую строчку.
           </p>
-        </div>
-
-        <div class="card card-accent reveal">
-          <h3>Думаю над</h3>
-          <p>
-            Запустить здесь блог. Материала хватает: каждый разбор
-            инцидента и каждая собранная лаборатория — готовая тема.
-            Осталось начать писать, а не собираться писать.
+          <p data-lang="en">
+            Going deeper into container security and DevSecOps practices.
+            In parallel: HTML, CSS and Git — figuring out how the web works
+            and building this very site by hand, so that I understand every
+            line of it.
           </p>
         </div>
 
         <div class="card card-accent reveal">
-          <h3>Вне работы</h3>
-          <p>
+          <h3 data-lang="ru">Думаю над</h3>
+          <h3 data-lang="en">Thinking about</h3>
+          <p data-lang="ru">
+            Запустить здесь блог. Материала хватает: каждый разбор
+            инцидента и каждая собранная лаборатория — готовая тема.
+            Осталось начать писать, а не собираться писать.
+          </p>
+          <p data-lang="en">
+            Starting a blog here. There is no shortage of material: every
+            incident review and every lab I build is a ready-made topic.
+            All that is left is to start writing instead of planning to.
+          </p>
+        </div>
+
+        <div class="card card-accent reveal">
+          <h3 data-lang="ru">Вне работы</h3>
+          <h3 data-lang="en">Outside work</h3>
+          <p data-lang="ru">
             Футбол и мастерская: делаю изделия из натуральной кожи.
+          </p>
+          <p data-lang="en">
+            Football and the workshop: I make things out of natural leather.
           </p>
         </div>
 
@@ -94,11 +153,16 @@
 
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Связаться</p>
-      <h2>Если хочется обсудить что-то из этого</h2>
+      <p class="eyebrow" data-lang="ru">Связаться</p>
+      <p class="eyebrow" data-lang="en">Get in touch</p>
+
+      <h2 data-lang="ru">Если хочется обсудить что-то из этого</h2>
+      <h2 data-lang="en">If you want to talk about any of this</h2>
+
       <ul class="contact-list mt-32">
         <li>
-          <span class="contact-kind">Почта</span>
+          <span class="contact-kind" data-lang="ru">Почта</span>
+          <span class="contact-kind" data-lang="en">Email</span>
           <a href="mailto:amandin68@gmail.com">amandin68@gmail.com</a>
         </li>
         <li>
@@ -114,7 +178,11 @@
 <footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Сергей Меркулов</span>
-    <span><a href="index.html">На главную</a></span>
+    <span>
+      <a href="index.html">
+        <span data-lang="ru">На главную</span><span data-lang="en">Back to home</span>
+      </a>
+    </span>
   </div>
 </footer>
 

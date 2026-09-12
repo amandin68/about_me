@@ -12,22 +12,45 @@
   <title>Мои навыки — Сергей Меркулов</title>
   <meta name="description" content="Навыки SRE-инженера по уровню владения: чем владею уверенно, чем пользуюсь по задаче, что изучаю сейчас.">
 
+  <!-- Выставляет язык до отрисовки, чтобы страница не мигала русским текстом
+       у того, кто выбрал английский. Поэтому без defer. -->
+  <script src="lang-init.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap&subset=cyrillic,latin" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body
+  data-title-ru="Мои навыки — Сергей Меркулов"
+  data-title-en="Skills — Sergey Merkulov"
+  data-desc-ru="Навыки SRE-инженера по уровню владения: чем владею уверенно, чем пользуюсь по задаче, что изучаю сейчас."
+  data-desc-en="An SRE engineer’s skills sorted by depth: what I know well, what I use when needed, and what I am learning now.">
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">Сергей Меркулов</a>
-    <nav class="nav">
-      <a href="index.html">Обо мне</a>
-      <a href="skills.html" aria-current="page">Мои навыки</a>
-      <a href="now.html">Сейчас</a>
-    </nav>
+    <a class="brand" href="index.html"><span data-lang="ru">Сергей Меркулов</span><span data-lang="en">Sergey Merkulov</span></a>
+
+    <div class="header-right">
+      <nav class="nav">
+        <a href="index.html">
+          <span data-lang="ru">Обо мне</span><span data-lang="en">About</span>
+        </a>
+        <a href="skills.html" aria-current="page">
+          <span data-lang="ru">Мои навыки</span><span data-lang="en">Skills</span>
+        </a>
+        <a href="now.html">
+          <span data-lang="ru">Сейчас</span><span data-lang="en">Now</span>
+        </a>
+      </nav>
+
+      <div class="lang-switch">
+        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -38,13 +61,23 @@
 
   <section class="page-intro">
     <div class="wrap">
-      <p class="eyebrow">Навыки</p>
-      <h1 class="page-title">Мои навыки</h1>
-      <p class="lead">
+      <p class="eyebrow" data-lang="ru">Навыки</p>
+      <p class="eyebrow" data-lang="en">Skills</p>
+
+      <h1 class="page-title" data-lang="ru">Мои навыки</h1>
+      <h1 class="page-title" data-lang="en">My skills</h1>
+
+      <p class="lead" data-lang="ru">
         Не список иконок, а разметка по уровню владения: где я уверен,
         где это просто рабочий инструмент, а где пока учусь. Разница между
         этими тремя состояниями — самое полезное, что можно рассказать
         о своих навыках.
+      </p>
+      <p class="lead" data-lang="en">
+        Not a wall of logos, but a map sorted by depth: where I am confident,
+        where it is simply a tool I pick up, and where I am still learning.
+        The difference between those three states is the most useful thing
+        anyone can tell you about their skills.
       </p>
     </div>
   </section>
@@ -52,57 +85,95 @@
   <!-- ===== Уверенно ===== -->
   <section class="section-tight">
     <div class="wrap">
-      <p class="eyebrow">Уверенно</p>
-      <h2>Работал в проде: ломал, чинил и объяснял другим</h2>
+      <p class="eyebrow" data-lang="ru">Уверенно</p>
+      <p class="eyebrow" data-lang="en">Confident</p>
+
+      <h2 data-lang="ru">Работал в проде: ломал, чинил и объяснял другим</h2>
+      <h2 data-lang="en">Used in production: broke it, fixed it, explained it</h2>
+
       <div class="grid mt-32">
 
         <div class="card card-accent reveal">
-          <h3>Надёжность и эксплуатация</h3>
-          <p>
+          <h3 data-lang="ru">Надёжность и эксплуатация</h3>
+          <h3 data-lang="en">Reliability and operations</h3>
+          <p data-lang="ru">
             Разбор инцидентов и поиск корневых причин, постмортемы,
             Incident и Problem Management, error budget. Практики SRE —
             USE, RED — не как теория из книги, а как способ быстро сузить
             область поиска, когда всё горит.
           </p>
+          <p data-lang="en">
+            Incident analysis and root cause investigation, postmortems,
+            incident and problem management, error budgets. SRE practices
+            such as USE and RED — not as textbook theory, but as a way
+            to narrow the search fast while everything is on fire.
+          </p>
         </div>
 
         <div class="card card-accent reveal">
           <h3>Observability</h3>
-          <p>
+          <p data-lang="ru">
             Метрики, логи, трейсы и — главное — алерты, которые
             действительно о чём-то говорят. Grafana, VictoriaMetrics,
             vmalert, Alertmanager, Prometheus, Loki, ELK, KeepHQ
             для маршрутизации алертов в нужные команды.
           </p>
+          <p data-lang="en">
+            Metrics, logs, traces and — most importantly — alerts that
+            actually mean something. Grafana, VictoriaMetrics, vmalert,
+            Alertmanager, Prometheus, Loki, ELK, and KeepHQ for routing
+            alerts to the right teams.
+          </p>
         </div>
 
         <div class="card card-accent reveal">
-          <h3>Kubernetes и инфраструктура</h3>
-          <p>
+          <h3 data-lang="ru">Kubernetes и инфраструктура</h3>
+          <h3 data-lang="en">Kubernetes and infrastructure</h3>
+          <p data-lang="ru">
             Управление ресурсами и настройка проб, диагностика узлов
             и workload'ов, миграции приложений в кластер. Вокруг — Helm,
             ArgoCD, GitLab CI/CD, Harbor, Ansible, Terraform, Linux,
             Nginx, PostgreSQL, Kafka, S3.
           </p>
+          <p data-lang="en">
+            Resource management and probe tuning, troubleshooting nodes
+            and workloads, migrating applications into the cluster.
+            Around it: Helm, ArgoCD, GitLab CI/CD, Harbor, Ansible,
+            Terraform, Linux, Nginx, PostgreSQL, Kafka, S3.
+          </p>
         </div>
 
         <div class="card card-accent reveal">
-          <h3>Железо и хранение</h3>
-          <p>
+          <h3 data-lang="ru">Железо и хранение</h3>
+          <h3 data-lang="en">Hardware and storage</h3>
+          <p data-lang="ru">
             Редкий сегодня слой знаний, который выручает, когда проблема
             оказывается ниже уровня контейнера. СХД Hitachi и Huawei,
             объектное хранение HCP, SAN на Brocade, сети на уровне CCNA.
             Пусконаладка на площадке, а не только по документации.
           </p>
+          <p data-lang="en">
+            A layer of knowledge that is rare today and saves the day when
+            the problem turns out to be below the container. Hitachi and
+            Huawei arrays, HCP object storage, Brocade SAN, networking
+            at CCNA level. Commissioned on site, not just read about.
+          </p>
         </div>
 
         <div class="card card-accent reveal">
-          <h3>Передача знаний</h3>
-          <p>
+          <h3 data-lang="ru">Передача знаний</h3>
+          <h3 data-lang="en">Teaching</h3>
+          <p data-lang="ru">
             Разработка технических курсов с нуля, проектирование
             лабораторных сценариев, эксплуатационная документация,
             наставничество младших инженеров. Умение объяснить сложное —
             тоже инженерный навык, и он тренируется.
+          </p>
+          <p data-lang="en">
+            Building technical courses from scratch, designing lab
+            scenarios, writing operational documentation, mentoring junior
+            engineers. Explaining hard things clearly is an engineering
+            skill too — and it can be trained.
           </p>
         </div>
 
@@ -113,11 +184,19 @@
   <!-- ===== По задаче ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">По задаче</p>
-      <h2>Беру, когда нужно решить конкретную проблему</h2>
-      <p class="lead mb-28">
+      <p class="eyebrow" data-lang="ru">По задаче</p>
+      <p class="eyebrow" data-lang="en">As needed</p>
+
+      <h2 data-lang="ru">Беру, когда нужно решить конкретную проблему</h2>
+      <h2 data-lang="en">Tools I pick up to solve a specific problem</h2>
+
+      <p class="lead mb-28" data-lang="ru">
         Пользуюсь регулярно, но экспертом себя не назову.
       </p>
+      <p class="lead mb-28" data-lang="en">
+        I use these regularly, but would not call myself an expert.
+      </p>
+
       <ul class="tags">
         <li>Python</li>
         <li>Bash</li>
@@ -137,35 +216,59 @@
   <!-- ===== Изучаю ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Изучаю сейчас</p>
-      <h2>Зона роста</h2>
+      <p class="eyebrow" data-lang="ru">Изучаю сейчас</p>
+      <p class="eyebrow" data-lang="en">Learning now</p>
+
+      <h2 data-lang="ru">Зона роста</h2>
+      <h2 data-lang="en">Where I am growing</h2>
+
       <div class="grid mt-32">
 
         <div class="card reveal">
-          <h3>Безопасность контейнеров и DevSecOps</h3>
-          <p>
+          <h3 data-lang="ru">Безопасность контейнеров и DevSecOps</h3>
+          <h3 data-lang="en">Container security and DevSecOps</h3>
+          <p data-lang="ru">
             Логичное продолжение работы над курсом: анализ угроз, проверка
             образов, политики безопасности и расследование инцидентов
             в контейнерной среде. Область, где ИБ и эксплуатация наконец
             перестают быть двумя разными мирами.
           </p>
-        </div>
-
-        <div class="card reveal">
-          <h3>Платформенный подход и IaC</h3>
-          <p>
-            GitOps, инфраструктура как код, воспроизводимые окружения.
-            Интересует не сам инструмент, а вопрос: как сделать так, чтобы
-            команда могла разворачивать нужное сама, не приходя ко мне.
+          <p data-lang="en">
+            A natural continuation of my course work: threat analysis, image
+            scanning, security policies and incident investigation in
+            containerised environments. The area where security and
+            operations finally stop being two separate worlds.
           </p>
         </div>
 
         <div class="card reveal">
-          <h3>Веб и этот самый сайт</h3>
-          <p>
+          <h3 data-lang="ru">Платформенный подход и IaC</h3>
+          <h3 data-lang="en">Platform thinking and IaC</h3>
+          <p data-lang="ru">
+            GitOps, инфраструктура как код, воспроизводимые окружения.
+            Интересует не сам инструмент, а вопрос: как сделать так, чтобы
+            команда могла разворачивать нужное сама, не приходя ко мне.
+          </p>
+          <p data-lang="en">
+            GitOps, infrastructure as code, reproducible environments.
+            What interests me is not the tooling itself but the question:
+            how do you let a team provision what it needs without coming
+            to me first?
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3 data-lang="ru">Веб и этот самый сайт</h3>
+          <h3 data-lang="en">The web, and this very site</h3>
+          <p data-lang="ru">
             HTML, CSS, Git-процессы вокруг публикации. Начал с нуля —
             страница, которую вы читаете, написана руками и стала первым
             практическим результатом.
+          </p>
+          <p data-lang="en">
+            HTML, CSS and the Git workflow around publishing. I started from
+            zero — the page you are reading was written by hand and became
+            the first practical result.
           </p>
         </div>
 
@@ -176,17 +279,31 @@
   <!-- ===== Направление ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Направление</p>
-      <blockquote class="quote reveal">
+      <p class="eyebrow" data-lang="ru">Направление</p>
+      <p class="eyebrow" data-lang="en">Direction</p>
+
+      <blockquote class="quote reveal" data-lang="ru">
         Сильный SRE, который умеет писать и объяснять, полезнее
         двух молчаливых.
       </blockquote>
-      <p class="lead mt-32">
+      <blockquote class="quote reveal" data-lang="en">
+        One strong SRE who can write and explain is worth more
+        than two silent ones.
+      </blockquote>
+
+      <p class="lead mt-32" data-lang="ru">
         Хочу оставаться на стыке двух ролей: инженера, который сам держит
         руки в проде, и человека, который умеет передать это дальше.
         В эту сторону и расту.
       </p>
-      <p class="note">Английский — B2. Читаю документацию и вендорские курсы в оригинале.</p>
+      <p class="lead mt-32" data-lang="en">
+        I want to stay at the intersection of two roles: an engineer whose
+        hands are still in production, and someone who can pass that on.
+        That is the direction I am growing in.
+      </p>
+
+      <p class="note" data-lang="ru">Английский — B2. Читаю документацию и вендорские курсы в оригинале.</p>
+      <p class="note" data-lang="en">English at B2 level. I read documentation and vendor courses in the original.</p>
     </div>
   </section>
 
@@ -195,7 +312,11 @@
 <footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Сергей Меркулов</span>
-    <span><a href="index.html">На главную</a></span>
+    <span>
+      <a href="index.html">
+        <span data-lang="ru">На главную</span><span data-lang="en">Back to home</span>
+      </a>
+    </span>
   </div>
 </footer>
 

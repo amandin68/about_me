@@ -12,6 +12,10 @@
   <title>Сергей Меркулов — SRE-инженер</title>
   <meta name="description" content="SRE и DevOps инженер из Москвы. 14 лет пути от техподдержки до Kubernetes. Разрабатываю технические тренинги в Лаборатории Касперского.">
 
+  <!-- Выставляет язык до отрисовки, чтобы страница не мигала русским текстом
+       у того, кто выбрал английский. Поэтому без defer. -->
+  <script src="lang-init.js"></script>
+
   <!-- Шрифты подгружаются со стороннего сервера. preconnect говорит браузеру
        открыть соединение заранее, не дожидаясь, пока дело дойдёт до CSS. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,16 +24,37 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<!-- Заголовок вкладки и описание для поисковиков живут в <head>, спрятать их
+     через CSS нельзя — поэтому переводы лежат здесь и подставляются скриптом. -->
+<body
+  data-title-ru="Сергей Меркулов — SRE-инженер"
+  data-title-en="Sergey Merkulov — SRE Engineer"
+  data-desc-ru="SRE и DevOps инженер из Москвы. 14 лет пути от техподдержки до Kubernetes. Разрабатываю технические тренинги в Лаборатории Касперского."
+  data-desc-en="SRE and DevOps engineer based in Moscow. Fourteen years from helpdesk to Kubernetes. Now building technical training courses at Kaspersky.">
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">Сергей Меркулов</a>
-    <nav class="nav">
-      <a href="index.html" aria-current="page">Обо мне</a>
-      <a href="skills.html">Мои навыки</a>
-      <a href="now.html">Сейчас</a>
-    </nav>
+    <a class="brand" href="index.html"><span data-lang="ru">Сергей Меркулов</span><span data-lang="en">Sergey Merkulov</span></a>
+
+    <div class="header-right">
+      <nav class="nav">
+        <a href="index.html" aria-current="page">
+          <span data-lang="ru">Обо мне</span><span data-lang="en">About</span>
+        </a>
+        <a href="skills.html">
+          <span data-lang="ru">Мои навыки</span><span data-lang="en">Skills</span>
+        </a>
+        <a href="now.html">
+          <span data-lang="ru">Сейчас</span><span data-lang="en">Now</span>
+        </a>
+      </nav>
+
+      <div class="lang-switch">
+        <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -39,17 +64,32 @@
   <div class="wrap">
     <div class="hero">
       <div>
-        <p class="eyebrow">SRE · DevOps </p>
-        <h1>Инженер,<br>который объясняет</h1>
-        <p class="hero-role">Сергей Меркулов — Москва</p>
-        <p class="hero-lead">
+        <p class="eyebrow">SRE · DevOps</p>
+
+        <h1 data-lang="ru">Инженер,<br>который объясняет</h1>
+        <h1 data-lang="en">The engineer<br>who explains</h1>
+
+        <p class="hero-role" data-lang="ru">Сергей Меркулов — Москва</p>
+        <p class="hero-role" data-lang="en">Sergey Merkulov — Moscow</p>
+
+        <p class="hero-lead" data-lang="ru">
           Четырнадцать лет прошёл снизу вверх: от кабелей и стоек
           до Kubernetes и постмортемов. Сейчас превращаю этот опыт
           в курсы, по которым учатся инженеры.
         </p>
+        <p class="hero-lead" data-lang="en">
+          Fourteen years climbing the stack from the bottom up: from cables
+          and racks to Kubernetes and postmortems. Today I turn that
+          experience into courses engineers learn from.
+        </p>
+
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:amandin68@gmail.com">Написать на почту</a>
-          <a class="btn btn-ghost" href="https://t.me/Amandin68" rel="noopener noreferrer">Написать в телеграм</a>
+          <a class="btn btn-primary" href="mailto:amandin68@gmail.com">
+            <span data-lang="ru">Написать на почту</span><span data-lang="en">Send an email</span>
+          </a>
+          <a class="btn btn-ghost" href="https://t.me/Amandin68" rel="noopener noreferrer">
+            <span data-lang="ru">Написать в телеграм</span><span data-lang="en">Message on Telegram</span>
+          </a>
         </div>
       </div>
 
@@ -64,19 +104,23 @@
     <div class="stats reveal">
       <div>
         <div class="stat-num">14</div>
-        <div class="stat-label">лет в инфраструктуре<br>и эксплуатации</div>
+        <div class="stat-label" data-lang="ru">лет в инфраструктуре<br>и эксплуатации</div>
+        <div class="stat-label" data-lang="en">years in infrastructure<br>and operations</div>
       </div>
       <div>
         <div class="stat-num">50+</div>
-        <div class="stat-label">инженеров обучил<br>работе с продуктом</div>
+        <div class="stat-label" data-lang="ru">инженеров обучил<br>работе с продуктом</div>
+        <div class="stat-label" data-lang="en">engineers trained<br>on the product</div>
       </div>
       <div>
         <div class="stat-num">2</div>
-        <div class="stat-label">технических курса<br>собрал с нуля</div>
+        <div class="stat-label" data-lang="ru">технических курса<br>собрал с нуля</div>
+        <div class="stat-label" data-lang="en">technical courses<br>built from scratch</div>
       </div>
       <div>
         <div class="stat-num">800</div>
-        <div class="stat-label">простаивающих CPU<br>нашёл в кластерах</div>
+        <div class="stat-label" data-lang="ru">простаивающих CPU<br>нашёл в кластерах</div>
+        <div class="stat-label" data-lang="en">idle CPUs found<br>across clusters</div>
       </div>
     </div>
   </div>
@@ -84,20 +128,33 @@
   <!-- ===== Путь ===== -->
   <section>
     <div class="wrap">
-      <p class="eyebrow">Путь</p>
-      <h2>Снизу вверх, без пропущенных ступеней</h2>
-      <p class="lead mb-48">
+      <p class="eyebrow" data-lang="ru">Путь</p>
+      <p class="eyebrow" data-lang="en">Path</p>
+
+      <h2 data-lang="ru">Снизу вверх, без пропущенных ступеней</h2>
+      <h2 data-lang="en">Bottom-up, without skipping a step</h2>
+
+      <p class="lead mb-48" data-lang="ru">
         Каждый следующий слой я осваивал, уже понимая предыдущий.
         Это даёт редкую вещь: когда что-то ломается, я знаю, на какую
         глубину нужно нырять.
+      </p>
+      <p class="lead mb-48" data-lang="en">
+        I learned each layer only after understanding the one beneath it.
+        That gives me something rare: when things break, I know how deep
+        I need to dive.
       </p>
 
       <div class="timeline">
 
         <div class="tl-item is-now reveal">
-          <div class="tl-date">2025 — сейчас</div>
-          <h3>Лаборатория Касперского · Разработка технических тренингов</h3>
-          <p>
+          <div class="tl-date" data-lang="ru">2025 — сейчас</div>
+          <div class="tl-date" data-lang="en">2025 — now</div>
+
+          <h3 data-lang="ru">Лаборатория Касперского · Разработка технических тренингов</h3>
+          <h3 data-lang="en">Kaspersky · Technical training development</h3>
+
+          <p data-lang="ru">
             Собрал с нуля курс по Kaspersky Container Security — о том, как
             встроить проверки безопасности в реальный процесс поставки ПО.
             По нему преподают в большинстве регионов мира. Второй курс —
@@ -105,49 +162,96 @@
             с лабораториями на Grafana, VictoriaMetrics и Loki. Учебные
             среды разворачиваю через Terraform в AWS и VMware.
           </p>
+          <p data-lang="en">
+            Built a course on Kaspersky Container Security from scratch —
+            about embedding security checks into a real software delivery
+            pipeline. It is now taught across most regions of the world.
+            The second course covers troubleshooting OSMP, a Kubernetes-based
+            microservice platform, with labs on Grafana, VictoriaMetrics
+            and Loki. I provision the training environments with Terraform
+            on AWS and VMware.
+          </p>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-date">2022 — 2025</div>
-          <h3>Ecom.tech · SRE / DevOps</h3>
-          <p>
+
+          <h3 data-lang="ru">Ecom.tech · SRE / DevOps</h3>
+          <h3 data-lang="en">Ecom.tech · SRE / DevOps</h3>
+
+          <p data-lang="ru">
             Отвечал за надёжность: разбор инцидентов и поиск корневых причин,
             постмортемы, Incident и Problem Management, error budget.
             Переписал алертинг для Postgres, Kubernetes, Linux и HAProxy —
             нагрузка на поддержку упала вдвое. Спланировал и провёл миграцию
             основного API-gateway с Docker Compose на Kubernetes.
           </p>
+          <p data-lang="en">
+            Owned reliability: incident analysis and root cause investigation,
+            postmortems, incident and problem management, error budgets.
+            Rewrote alerting for Postgres, Kubernetes, Linux and HAProxy,
+            which cut the load on support in half. Planned and delivered the
+            migration of the main API gateway from Docker Compose
+            to Kubernetes.
+          </p>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-date">2021 — 2022</div>
-          <h3>ВТБ · Эксперт по системам хранения</h3>
-          <p>
+
+          <h3 data-lang="ru">ВТБ · Эксперт по системам хранения</h3>
+          <h3 data-lang="en">VTB Bank · Storage systems expert</h3>
+
+          <p data-lang="ru">
             СХД Hitachi и Huawei, объектное хранение на Hitachi Content
             Platform, отказоустойчивые репликационные кластеры,
             SAN-фабрики Brocade. Мониторинг через SNMP и REST API.
+          </p>
+          <p data-lang="en">
+            Hitachi and Huawei storage arrays, object storage on Hitachi
+            Content Platform, fault-tolerant replication clusters, Brocade
+            SAN fabrics. Monitoring over SNMP and REST API.
           </p>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-date">2018 — 2021</div>
-          <h3>iCore, Техносерв · Инженер</h3>
-          <p>
+
+          <h3 data-lang="ru">iCore, Техносерв · Инженер</h3>
+          <h3 data-lang="en">iCore, Technoserv · Engineer</h3>
+
+          <p data-lang="ru">
             Пусконаладка на площадке заказчика: Hitachi VSP, IBM Power,
             SAN-директоры Brocade. Там, где ошибка стоит дорого,
             а гуглить некогда. Тогда же начал проводить внутренние
             семинары для коллег — первый опыт передачи знаний.
           </p>
+          <p data-lang="en">
+            On-site commissioning at customer facilities: Hitachi VSP,
+            IBM Power, Brocade SAN directors. The kind of work where
+            a mistake is expensive and there is no time to look things up.
+            This is also where I started running internal workshops
+            for colleagues — my first experience of teaching.
+          </p>
         </div>
 
         <div class="tl-item reveal">
           <div class="tl-date">2011 — 2018</div>
-          <h3>Начало · Техподдержка и системное администрирование</h3>
-          <p>
+
+          <h3 data-lang="ru">Начало · Техподдержка и системное администрирование</h3>
+          <h3 data-lang="en">The beginning · Helpdesk and system administration</h3>
+
+          <p data-lang="ru">
             Сборка машин, локальные сети, VPN между филиалами, сотня
             пользователей, которым нужно, чтобы всё просто работало.
             Базовое понимание, что под любой абстракцией лежит железо —
             и оно ломается.
+          </p>
+          <p data-lang="en">
+            Building machines, local networks, VPN links between branch
+            offices, a hundred users who simply need things to work. This is
+            where I learned that underneath every abstraction there is
+            physical hardware — and it breaks.
           </p>
         </div>
 
@@ -158,16 +262,29 @@
   <!-- ===== Принципы ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Подход</p>
-      <blockquote class="quote reveal">
+      <p class="eyebrow" data-lang="ru">Подход</p>
+      <p class="eyebrow" data-lang="en">Approach</p>
+
+      <blockquote class="quote reveal" data-lang="ru">
         Хорошее объяснение начинается с честности: сначала показать,
         как ломается, и только потом — почему чинится именно так.
       </blockquote>
-      <p class="lead mt-32">
+      <blockquote class="quote reveal" data-lang="en">
+        A good explanation starts with honesty: first show how it breaks,
+        and only then why it is fixed this particular way.
+      </blockquote>
+
+      <p class="lead mt-32" data-lang="ru">
         Я не умею рассказывать про технологию, которую сам не трогал руками
         в бою. Поэтому каждый мой курс вырос из реального инцидента,
         а каждая лабораторная — из ситуации, в которой я когда-то сидел
         ночью и не понимал, что происходит.
+      </p>
+      <p class="lead mt-32" data-lang="en">
+        I cannot teach a technology I have never touched under real pressure.
+        That is why every course of mine grew out of an actual incident, and
+        every lab out of a situation where I once sat through the night
+        without understanding what was going on.
       </p>
     </div>
   </section>
@@ -175,20 +292,30 @@
   <!-- ===== Личное ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Не про работу</p>
-      <h2 class="mb-36">Живой человек, а не стек технологий</h2>
+      <p class="eyebrow" data-lang="ru">Не про работу</p>
+      <p class="eyebrow" data-lang="en">Beyond work</p>
+
+      <h2 class="mb-36" data-lang="ru">Живой человек, а не стек технологий</h2>
+      <h2 class="mb-36" data-lang="en">A person, not a technology stack</h2>
+
       <div class="grid">
         <div class="card reveal">
-          <h3>Футбол</h3>
-          <p>Лучший способ выгрузить голову после недели разборов инцидентов.</p>
+          <h3 data-lang="ru">Футбол</h3>
+          <h3 data-lang="en">Football</h3>
+          <p data-lang="ru">Лучший способ выгрузить голову после недели разборов инцидентов.</p>
+          <p data-lang="en">The best way to clear my head after a week of incident reviews.</p>
         </div>
         <div class="card reveal">
-          <h3>Кожа</h3>
-          <p>Делаю изделия из натуральной кожи. Руками, медленно, без единого YAML-файла.</p>
+          <h3 data-lang="ru">Кожа</h3>
+          <h3 data-lang="en">Leather</h3>
+          <p data-lang="ru">Делаю изделия из натуральной кожи. Руками, медленно, без единого YAML-файла.</p>
+          <p data-lang="en">I make things out of natural leather. By hand, slowly, without a single YAML file.</p>
         </div>
         <div class="card reveal">
-          <h3>Учиться и учить</h3>
-          <p>Постоянно учусь сам и помогаю учиться другим — оставаясь при этом обычным живым человеком.</p>
+          <h3 data-lang="ru">Учиться и учить</h3>
+          <h3 data-lang="en">Learning and teaching</h3>
+          <p data-lang="ru">Постоянно учусь сам и помогаю учиться другим — оставаясь при этом обычным живым человеком.</p>
+          <p data-lang="en">I keep learning and help others learn — while staying an ordinary human being.</p>
         </div>
       </div>
     </div>
@@ -197,15 +324,25 @@
   <!-- ===== Контакты ===== -->
   <section class="section-line">
     <div class="wrap">
-      <p class="eyebrow">Контакты</p>
-      <h2>Давайте поговорим</h2>
-      <p class="lead mb-32">
+      <p class="eyebrow" data-lang="ru">Контакты</p>
+      <p class="eyebrow" data-lang="en">Contacts</p>
+
+      <h2 data-lang="ru">Давайте поговорим</h2>
+      <h2 data-lang="en">Let’s talk</h2>
+
+      <p class="lead mb-32" data-lang="ru">
         Открыт к предложениям, вопросам по SRE и эксплуатации
         и к разговорам про обучение инженеров.
       </p>
+      <p class="lead mb-32" data-lang="en">
+        Open to opportunities, questions about SRE and operations,
+        and conversations about training engineers.
+      </p>
+
       <ul class="contact-list">
         <li>
-          <span class="contact-kind">Почта</span>
+          <span class="contact-kind" data-lang="ru">Почта</span>
+          <span class="contact-kind" data-lang="en">Email</span>
           <a href="mailto:amandin68@gmail.com">amandin68@gmail.com</a>
         </li>
         <li>
@@ -224,7 +361,8 @@
 <footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Сергей Меркулов</span>
-    <span>Москва</span>
+    <span data-lang="ru">Москва</span>
+    <span data-lang="en">Moscow</span>
   </div>
 </footer>
 

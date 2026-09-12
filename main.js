@@ -1,3 +1,51 @@
+/* ==========================================================================
+   Переключатель языка.
+
+   Оба перевода лежат прямо в HTML, в соседних элементах с атрибутом
+   data-lang. Переключение — это смена одного атрибута lang у <html>:
+   дальше всё делает CSS, показывая нужную половину и пряча вторую.
+   Никакой перезагрузки и никаких отдельных страниц.
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  var buttons = document.querySelectorAll('[data-set-lang]');
+  if (!buttons.length) return;
+
+  function apply(lang) {
+    document.documentElement.lang = lang;
+
+    // Заголовок вкладки и описание для поисковиков живут в <head>, в CSS их
+    // не спрячешь — меняем вручную из data-атрибутов на <body>.
+    var title = document.body.getAttribute('data-title-' + lang);
+    if (title) document.title = title;
+
+    var desc = document.body.getAttribute('data-desc-' + lang);
+    var meta = document.querySelector('meta[name="description"]');
+    if (desc && meta) meta.setAttribute('content', desc);
+
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+    });
+
+    try {
+      localStorage.setItem('lang', lang);
+    } catch (e) { /* хранение запрещено — просто не запоминаем выбор */ }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      apply(b.getAttribute('data-set-lang'));
+    });
+  });
+
+  // Язык уже выставлен в lang-init.js — здесь только приводим в
+  // соответствие вид кнопок и заголовок вкладки.
+  apply(document.documentElement.lang === 'en' ? 'en' : 'ru');
+}());
+
+
 /* Плавное появление блоков при прокрутке.
 
    Принцип: страница обязана быть читаемой без скрипта. Поэтому в CSS блоки
